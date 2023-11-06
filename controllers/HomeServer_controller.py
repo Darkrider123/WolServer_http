@@ -3,7 +3,7 @@ from my_framework.my_http.http_data_types import HttpResponse
 from dtos.message import Message
 
 from wakeonlan import start_home_server
-from config import STATUS_LINK, SHUTDOWN_LINK
+from config import STATUS_LINK, SHUTDOWN_LINK, RESTART_LINK
 
 import urequests
 
@@ -15,6 +15,7 @@ class HomeServerController(BaseController):
         self.methods_dict["post_shutdown"] += "/shutdown"
         self.methods_dict["post_start"] += "/start"
         self.methods_dict["get_status"] += "/status"
+        self.methods_dict["put_restart"] += "/restart"
 
     def post_start(self, http_request):
 
@@ -41,6 +42,18 @@ class HomeServerController(BaseController):
         try:
             urequests.get(STATUS_LINK)
             body = Message("All ok!")
+            response = HttpResponse(200, {}, body)
+            return response
+        except:
+            body = Message("Server not responding!(Probably off)")
+            response = HttpResponse(200, {}, body)
+            return response
+        
+
+    def put_restart(self, http_request):
+        try:
+            urequests.put(RESTART_LINK)
+            body = Message("Restarting!")
             response = HttpResponse(200, {}, body)
             return response
         except:

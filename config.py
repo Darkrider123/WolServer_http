@@ -1,5 +1,5 @@
 from config_info_that_shouldnt_appear_on_git import PORT, SSID, WLAN_KEY, STATIC_IP, MASK, GATEWAY, DNS_SERVER, MAC_WOL, BROADCAST_ADDRESS
-from config_info_that_shouldnt_appear_on_git import STATUS_LINK, SHUTDOWN_LINK
+from config_info_that_shouldnt_appear_on_git import STATUS_LINK, SHUTDOWN_LINK, RESTART_LINK
 
 PORT = PORT
 SSID = SSID
@@ -21,3 +21,4 @@ SECONDS_UNTILL_RESET = 60 * 60 #1 Hour
 
 STATUS_LINK = STATUS_LINK
 SHUTDOWN_LINK = SHUTDOWN_LINK
+RESTART_LINK = RESTART_LINK

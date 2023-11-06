@@ -21,7 +21,10 @@ def main():
 
     if sys.implementation.name == "micropython":
         def restart_after_some_time_to_avoid_bugs(seconds_to_wait):
-            time.sleep(seconds_to_wait)
+            for _ in range(seconds_to_wait):
+                time.sleep(1)
+                if pie_pico_w_instance.is_connected() is False:
+                    pie_pico_w_instance.reset()
             pie_pico_w_instance.reset()
 
     if sys.implementation.name == "micropython":
