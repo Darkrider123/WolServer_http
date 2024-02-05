@@ -10,6 +10,7 @@ class PiePicoW():
     def connect_to_internet(self, SSID, WLAN_KEY, IFCONFIG=None):
         wlan = network.WLAN(network.STA_IF)
         wlan.active(True)
+        wlan.config(pm = 0xa11140)
         if IFCONFIG is not None:
             wlan.ifconfig(IFCONFIG)
 
