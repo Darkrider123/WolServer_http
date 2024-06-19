@@ -22,3 +22,5 @@ SECONDS_UNTILL_RESET = 60 * 5 #5 Minutes
 STATUS_LINK = STATUS_LINK
 SHUTDOWN_LINK = SHUTDOWN_LINK
 RESTART_LINK = RESTART_LINK
+
+PRODUCTION = False  #If set to False, it will send the stacktrace as body alongside 500 InternalServerError
